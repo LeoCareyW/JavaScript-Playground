@@ -32,7 +32,38 @@ const getUncompleted = (todos) => {
   })
 }
 
-console.log(getUncompleted(todos))
+const sortTodo = (todos) => {
+  todos.sort((a, b) => {
+    if (!a.completed && b.completed) {
+      return -1
+    } else if (!b.completed && a.completed) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
+
+
+
+// const sortNotes = (notes) => {
+//   notes.sort((a, b) => {
+//     if (a.title.toLowerCase() < b.title.toLowerCase()) {
+//       return -1
+//     } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+//       return 1
+//     } else {
+//       return 0
+//     }
+//   })
+// }
+
+
+sortTodo(todos)
+console.log(todos)
+
+// console.log(getUncompleted(todos))
 
 // deleteTodo(todos, 'code')
 // console.log(todos)

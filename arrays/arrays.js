@@ -9,6 +9,18 @@ const notes = [{
   body: 'New monitor'
 }]
 
+const sortNotes = (notes) => {
+  notes.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1
+    } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
 const findNote = (notes, noteTitle) => {
   return notes.find((note, index) => {
     return note.title.toLowerCase() === noteTitle.toLowerCase()
@@ -27,7 +39,8 @@ const findNote = (notes, noteTitle) => {
 
 console.log(findNotes(notes, 'cuba'))
 
-
+sortNotes(notes)
+console.log(notes)
 
  // const findNote = (notes, noteTitle) => {
  //  const index = notes.findIndex((note, index) => {
