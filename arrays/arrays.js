@@ -1,4 +1,4 @@
-const notes = [{}, {
+const notes = [{
   title: 'My next trip',
   body: 'I would like to go to Cuba'
 }, {
@@ -9,22 +9,45 @@ const notes = [{}, {
   body: 'New monitor'
 }]
 
-notes.forEach((item, index) => {
-  console.log(item, index)
-})
+const findNote = (notes, noteTitle) => {
+  return notes.find((note, index) => {
+    return note.title.toLowerCase() === noteTitle.toLowerCase()
+  })
+ }
 
-for (let count = 2; count >= 0; count --) {
-  // initial / condition / to do per iteration //
-  console.log(count)
-}
+ const findNotes = (notes, query) => {
+  return notes.filter((note, index) => {
+    const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase())
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase())
+    return isTitleMatch || isBodyMatch
+  })
+ }
 
-for (let count = notes.length - 1; count >= 0; count-- ) {
-  console.log(notes[count])
-}
 
-const index = notes.findIndex((note, index) => {
-  console.log(note)
-  return note.title === 'Habbits to work on'
-})
 
-console.log(index)
+console.log(findNotes(notes, 'cuba'))
+
+
+
+ // const findNote = (notes, noteTitle) => {
+ //  const index = notes.findIndex((note, index) => {
+ //    return note.title.toLowerCase() === noteTitle.toLowerCase()
+ //  })
+ //  return notes[index]
+ // }
+
+// const note = findNote(notes, 'office modifications')
+// console.log(note)
+
+// notes.forEach((item, index) => {
+//   console.log(item, index)
+// })
+
+// for (let count = 2; count >= 0; count --) {
+//   // initial / condition / to do per iteration //
+//   console.log(count)
+// }
+
+// for (let count = notes.length - 1; count >= 0; count-- ) {
+//   console.log(notes[count])
+// }
