@@ -1,5 +1,5 @@
-let gradeCalculator = (score, possible) => {
-  let result = (score / possible) * 100
+const gradeCalculator = (score, possible) => {
+  const result = (score / possible) * 100
   let letter = 'A'
   pronoun = 'a'
 
@@ -20,5 +20,5 @@ let gradeCalculator = (score, possible) => {
   return `You got ${pronoun} ${letter} (${result}%)`
 }
 
-let calculate = gradeCalculator(12, 100)
+const calculate = gradeCalculator(12, 100)
 console.log(calculate)
