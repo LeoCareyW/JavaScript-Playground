@@ -1,27 +1,32 @@
 const account = {
   name: 'Leo Carey-Williams',
   expenses: [],
-  addExpense: function (description, amount) {
-    this.expenses.push({description, amount})
+  income: [],
+  addExpense: function (item, amount) {
+    this.expenses.push({item, amount})
   },
-  getAccountSummary: () => {
-    let totalExpenses = 0
-    this.expenses.forEach(function (expense) {
-      totalExpenses += expense.amount
+  addIncome: function (item, amount) {
+    this.income.push({item, amount})
+  },
+  getAccountSummary: function () {
+    let expenseTotal = 0
+    let incomeTotal = 0
+
+    this.expenses.forEach((expense) => {
+      expenseTotal += expense.amount
+    })
+    this.income.forEach((income) => {
+      incomeTotal += income.amount
     })
 
+    let total = incomeTotal - expenseTotal
 
-    `${this.name}'s account has ${totalExpenses} in expenses.`
+    return `${this.name}'s account has £${total}. ${expenseTotal} in expenses and ${incomeTotal} in income.`
   }
 }
 
-console.log(account.expenses)
-
-// Expense: description, amount
-// addExpense -> description, amount
-// getAccountSummary -> name has expenses in expenses
-
-
-account.addExpense('rent', 765)
-account.addExpense('laptop', 2800)
+account.addExpense('Rent', 950)
+account.addExpense('Laptop', 2400)
+account.addIncome('Freelance', 650)
+account.addIncome('Security', 3000)
 console.log(account.getAccountSummary())
