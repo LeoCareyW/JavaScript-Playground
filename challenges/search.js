@@ -29,28 +29,12 @@ tasks = []
     return !todo.completed
   })
 
-  const filters = {
-    searchText: ''
-  }
-
-  const renderTodo = (todos, filters) => {
-    const filteredTodo = todos.filter((todo) => {
-      return todo.title.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
-    document.querySelector('#todo').innerHTML = ('')
-
-    filteredTodo.forEach((todo) => {
-      const element = document.createElement('p')
-      element.textContent = todo.title
-      document.querySelector('#todo').appendChild(element)
-    })
-  }
 
   const newPara = document.createElement('h2')
     newPara.textContent = `You have ${incompleteTodos.length} tasks left to do.`
     document.querySelector('h3').appendChild(newPara)
 
-  renderTodo(todos, filters)
+
 
 
   // tasks.forEach((task, index) => {
@@ -67,10 +51,61 @@ document.querySelector('#add-todo').addEventListener('input', (e) => {
   console.log(e.target.value)
 })
 
-document.querySelector('#search-text').addEventListener('input', (e) => {
-  filters.searchText = e.target.value
-  renderTodo(todos, filters)
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   const filters = {
+//     searchText: ''
+//   }
+
+//   const renderTodo = (todos, filters) => {
+//     const filteredTodo = todos.filter((todo) => {
+//       return todo.title.toLowerCase().includes(filters.searchText.toLowerCase())
+//     })
+//     document.querySelector('#todo').innerHTML = ('')
+
+//     filteredTodo.forEach((todo) => {
+//       const element = document.createElement('p')
+//       element.textContent = todo.title
+//       document.querySelector('#todo').appendChild(element)
+//     })
+//   }
+
+// .
+// .
+// .
+// .
+
+
+// renderTodo(todos, filters)
+
+
+// document.querySelector('#search-text').addEventListener('input', (e) => {
+//   filters.searchText = e.target.value
+//   renderTodo(todos, filters)
+// })
+
+
+
 
 // const paras = document.querySelectorAll('p')
 
