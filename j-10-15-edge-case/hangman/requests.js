@@ -1,50 +1,50 @@
 const getPuzzle = async (wordCount) => {
   const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
   if (response.status === 200) {
-    const data = await response.json()
-    return data.puzzle
+    const data = await response.json();
+    return data.puzzle;
   } else {
-    throw new Error('Unable to get puzzle')
+    throw new Error('Unable to get puzzle');
   }
 }
 
 const getPuzzleOld = (wordCount) => {
   return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
     if (response.status === 200) {
-      return response.json()
+      return response.json();
   } else {
-      throw new Error('Unable to fetch the puzzle')
+      throw new Error('Unable to fetch the puzzle');
     }
   }).then((data) => {
-    return data.puzzle
+    return data.puzzle;
   })
 }
 
 
 const getCountry = async (countryCode) => {
-  const response = await fetch('http://restcountries.eu/rest/v2/all')
+  const response = await fetch('http://restcountries.eu/rest/v2/all');
     if (response.status === 200) {
-      const data = await response.json()
-      return data.find((country) => country.alpha2Code === countryCode)
+      const data = await response.json();
+      return data.find((country) => country.alpha2Code === countryCode);
     } else {
-      throw new Error('Unable to fetch country')
+      throw new Error('Unable to fetch country');
     }
   }
 
 
 const getLocation = async () => {
-  const response = await fetch('http://ipinfo.io/json?token=1a11bd55cc8f9c')
+  const response = await fetch('http://ipinfo.io/json?token=1a11bd55cc8f9c');
     if (response.status === 200) {
-      return response.json()
+      return response.json();
     } else {
-      throw new Error('Unable to fetch country')
+      throw new Error('Unable to fetch country');
     }
   }
 
 
 const getCurrentCountry = async () => {
-  const location = await getLocation()
-  return getCountry(location.country)
+  const location = await getLocation();
+  return getCountry(location.country);
 }
 
 
