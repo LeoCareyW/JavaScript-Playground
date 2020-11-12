@@ -23,31 +23,33 @@ document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
 
-// getPuzzle('2').then((puzzle) => {
-//   console.log(puzzle)
-// }).catch((err) => {
-//   console.log(`Error: ${err}`)
-// })
+getPuzzle('2').then((puzzle) => {
+  console.log(puzzle)
+}).catch((err) => {
+  console.log(`Error: ${err}`)
+})
 
 
 // getLocation().then(({city, region, country}) => {
-//   console.log(city, region, country)
-// }, (err) => {
-//   console.log(`There has been an error finding the requested information. ${err}`)
-// })
-
-// getCountry('GB').then((country) => {
-//   console.log(country.name)
-// }, (err) => {
-//   console.log(`Error bro: ${err}`)
-// })
-
-
-// getCurrentCountry().then((country) => {
-//   console.log(country.name)
+//   console.log(`You are in ${city}, ${region}, ${country}`);
 // }).catch((err) => {
-//   console.log(err)
+//   console.log(`Error: ${err}`);
 // })
+
+getLocation().then((location) => {
+  return getCountry(location.country).then(({name}) => {
+    console.log(name)
+  }, (err) => {
+    console.log(`Error bro: ${err}`);
+  });
+});
+
+
+getCurrentCountry().then((country) => {
+  console.log(country.name);
+}).catch((err) => {
+  console.log(err);
+});
 
 
 // getLocation().then(({country}) => {
